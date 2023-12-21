@@ -1,9 +1,11 @@
+
 const main = document.querySelector("#main");
 const qna = document.querySelector("#qna");
 const result = document.querySelector("#result");
 
 const endPoint = 12;
 const select = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+const answerList = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 function calResult(){
   console.log(select);
@@ -15,6 +17,15 @@ function setResult(){
   let point = calResult();
   const resultName = document.querySelector('.resultname');
   resultName.innerHTML = infoList[point].name;
+  console.log(answerList);
+
+  const AnswerGroup = document.querySelector('.AnswerGroup');
+  for(let i=0; i<endPoint; i++){
+    let tempLi = document.createElement('li');
+    let tempText = qnaList[i].q + ' ' + qnaList[i].a[answerList[i]].answer; //첫번째 질문 : 첫번째 질문의 선택한 대답
+    tempLi.innerText = tempText;
+    AnswerGroup.appendChild(tempLi);
+  }
 
   var resultImg = document.createElement('img');
   const imgDiv = document.querySelector('#resultImg');
@@ -54,6 +65,9 @@ function addAnswer(answerText, qIdx, idx){
   answer.innerHTML = answerText;
 
   answer.addEventListener("click", function(){
+    answerList[qIdx] = idx;
+    //const answerList = [1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0]; 
+    //=> 첫번째 질문에서 두번째 대답, 두번째 질문에서 첫번째 대답, 세번째 질문에서 세번째 대답
     var children = document.querySelectorAll('.answerList');
     for(let i = 0; i < children.length; i++){
       children[i].disabled = true;
@@ -83,6 +97,9 @@ function goNext(qIdx){
   var q = document.querySelector('.qBox');
   q.innerHTML = qnaList[qIdx].q;
   for(let i in qnaList[qIdx].a){
+    //첫번째 질문에 대한 첫번째 대답 qnaList[0].a[0].answer
+    //첫번째 질문에 대한 두번째 대답 qnaList[0].a[1].answer
+    //          ''      세번째 대답 qnaList[0].a[2].answer
     addAnswer(qnaList[qIdx].a[i].answer, qIdx, i);
   }
   var status = document.querySelector('.statusBar');

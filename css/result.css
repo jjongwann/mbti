@@ -18,7 +18,7 @@
 }
 
 .resultDesc{
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .kakao{
@@ -45,4 +45,17 @@
 .gohome:hover, .gohome:focus {
   background-color: whitesmoke;
   color: pink;
+}
+.AnswerGroup {
+  padding-left: 0rem;
+}
+.AnswerGroup li{
+  list-style: none;
+  padding: 10px;
+  font-size: 22px;
+  
+}
+.AnswerGroup li:last-child{
+  border-bottom: 1.5px solid pink;
+  margin-bottom: 10px;
 }
