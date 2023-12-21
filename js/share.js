@@ -1,4 +1,4 @@
-const url = 'https://twelvelovetype.netlify.app/';
+const url = 'https://mbti-love.netlify.app/';
 
 function setShare(){
   var resultImg = document.querySelector('#resultImg');
