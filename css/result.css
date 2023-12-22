@@ -18,7 +18,7 @@
 }
 
 .resultDesc{
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 .kakao{
@@ -52,8 +52,7 @@
 .AnswerGroup li{
   list-style: none;
   padding: 10px;
-  font-size: 22px;
-  
+  font-size: 1.3rem;
 }
 .AnswerGroup li:last-child{
   border-bottom: 1.5px solid pink;
